@@ -1,0 +1,2 @@
+!function(){localStorage.setItem("number",555),localStorage.setItem("ABC","qweqweqweqwe"),console.log("localStorage:",localStorage.getItem("ABC"));var e={name:"Dima",age:36};console.log("object:",e);var o=JSON.stringify(e);console.log("JSON:",o);var a=JSON.parse(o);console.log("parseUser:",a),localStorage.setItem("data",o),console.log(JSON.parse(localStorage.getItem("data")))}();
+//# sourceMappingURL=02-video.f0b4613c.js.map
