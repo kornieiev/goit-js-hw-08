@@ -1,19 +1,28 @@
-const number = 36;
-localStorage.setItem('number', 555);
-localStorage.setItem('ABC', 'qweqweqweqwe');
-console.log('localStorage:', localStorage.getItem('ABC'));
+import Player from '@vimeo/player';
+import throttle from 'lodash.throttle';
 
-const user = {
-  name: 'Dima',
-  age: 36,
-};
-console.log('object:', user);
+const STORAGE_KEY = 'videoplayer-current-time';
 
-const userJSON = JSON.stringify(user);
-console.log('JSON:', userJSON);
+const player = new Player('vimeo-player', {
+  id: 19231868,
+  width: 640,
+});
 
-const parseUser = JSON.parse(userJSON);
-console.log('parseUser:', parseUser);
-localStorage.setItem('data', userJSON);
+player.on(
+  'timeupdate',
+  throttle(function ({ seconds }) {
+    localStorage.setItem(STORAGE_KEY, seconds);
+  }, 500)
+);
 
-console.log(JSON.parse(localStorage.getItem('data')));
+window.addEventListener('load', onload);
+
+function onload() {
+  try {
+    const data = localStorage.getItem(STORAGE_KEY);
+    if (!data) return;
+    player.setCurrentTime(data);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
