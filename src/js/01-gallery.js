@@ -1,12 +1,10 @@
 import SimpleLightbox from 'simplelightbox';
-import SimpleLightbox from 'simplelightbox/dist/simple-lightbox.esm';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import '../css/common.css';
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 // Change code below this line
 
 const gallery = document.querySelector('.gallery');
-console.log(gallery);
 
 const getMarkup = galleryItems
   .map(
@@ -19,7 +17,6 @@ const getMarkup = galleryItems
   `
   )
   .join('');
-console.log(getMarkup);
 
 gallery.insertAdjacentHTML('beforeend', getMarkup);
 
