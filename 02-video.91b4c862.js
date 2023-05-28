@@ -1,2 +1,0 @@
-localStorage.setItem("number",555),localStorage.setItem("ABC","qweqweqweqwe"),console.log("localStorage:",localStorage.getItem("ABC"));const e={name:"Dima",age:36};console.log("object:",e);const o=JSON.stringify(e);console.log("JSON:",o);const t=JSON.parse(o);console.log("parseUser:",t),localStorage.setItem("data",o),console.log(JSON.parse(localStorage.getItem("data")));
-//# sourceMappingURL=02-video.91b4c862.js.map
