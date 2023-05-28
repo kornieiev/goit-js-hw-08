@@ -12,7 +12,7 @@ player.on(
   'timeupdate',
   throttle(function ({ seconds }) {
     localStorage.setItem(STORAGE_KEY, seconds);
-  }, 500)
+  }, 1000)
 );
 
 window.addEventListener('load', onload);
